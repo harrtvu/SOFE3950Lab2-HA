@@ -31,3 +31,30 @@ int main(int argc, char **argv) {
     }
     return EXIT_SUCCESS;
 }
+void changeDir(){
+
+}
+void clearScreen(){
+
+}
+void listContent(){
+
+}
+void listEnvironmentStrings(){
+
+}
+void displayCommands(){
+
+}
+void displayManual(){
+
+}
+void pauseOperation(){
+
+}
+void quitShell(){
+
+}
+void displayShellEnvironment(){
+
+}
