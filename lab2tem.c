@@ -1,11 +1,16 @@
 #include <stdio.h>
-int main() {
-    char cmd;
-    double n1, n2;
-    printf("Enter an cmd (+, -, *, /): ");
+int main(int argc, char **argv) {
+
+
+
+
+
+	char cmd;
+
+    printf("Enter an cmd");
     scanf("%c", &cmd);
     printf("Enter two operands: ");
-    scanf("%lf %lf",&n1, &n2);
+
     switch(cmd)
     {
         case '+':
@@ -24,5 +29,5 @@ int main() {
         default:
             printf("Error! operator is not correct");
     }
-    return 0;
+    return EXIT_SUCCESS;
 }
