@@ -5,7 +5,7 @@
 #include "shell.h"
 #define clear() printf("\033[H\033[J")
 
-void cdfunction();
+void displayCommands();
 
 int main() {
     char command;
@@ -67,5 +67,4 @@ void quitShell(){
 }
 void displayShellEnvironment(){
 
-}
 }
