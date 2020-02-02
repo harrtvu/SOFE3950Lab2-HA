@@ -5,15 +5,18 @@
 #include "shell.h"
 #define clear() printf("\033[H\033[J")
 
+void cdfunction();
 
 int main() {
-     
+    char command;
+    printf("Enter an cmd: ");
+    scanf("%s", &command);
     
     
     switch(command)
     {
         case '1':
-         cdfunction();
+         displayCommands();
    
             break;
         case '-':
@@ -32,6 +35,37 @@ int main() {
     return 0;
 }
 
-void cdfunction(){
 
+
+void changeDir(){
+
+}
+void clearScreen(){
+
+}
+void listContent(){
+
+}
+void listEnvironmentStrings(){
+
+}
+void displayCommands(){
+printf("Printing current dir\n");
+	char cwd[100];
+	if(getcwd(cwd, sizeof(cwd)) != NULL){
+		printf("%s\n", cwd);
+	}
+}
+void displayManual(){
+
+}
+void pauseOperation(){
+
+}
+void quitShell(){
+
+}
+void displayShellEnvironment(){
+
+}
 }
