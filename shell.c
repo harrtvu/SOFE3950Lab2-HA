@@ -8,8 +8,10 @@
 void displayCommands();
 
 int main() {
+	
+    printf("1 - Change or present the current directory\n");
     char command;
-    printf("Enter an cmd: ");
+    printf("Enter cmd: ");
     scanf("%s", &command);
     
     
@@ -36,6 +38,26 @@ int main() {
 }
 
 
+void displayCommands(){
+
+    char cmd[50];
+    printf("cd - for display the current directory\n");
+    printf("cd <directory> - for changing the current directory \n");
+    scanf("%s", cmd);
+if (strcmp(cmd, "cd") == 0)
+{
+
+printf("Printing current directory\n");
+	char cwd[100];
+	if(getcwd(cwd, sizeof(cwd)) != NULL){
+		printf("%s\n", cwd);
+	}
+}
+else {
+   chdir("cmd");
+	printf("Changed\n");
+}
+}
 
 void changeDir(){
 
@@ -49,13 +71,7 @@ void listContent(){
 void listEnvironmentStrings(){
 
 }
-void displayCommands(){
-printf("Printing current dir\n");
-	char cwd[100];
-	if(getcwd(cwd, sizeof(cwd)) != NULL){
-		printf("%s\n", cwd);
-	}
-}
+
 void displayManual(){
 
 }
