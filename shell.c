@@ -5,12 +5,9 @@
 #include "shell.h"
 #define clear() printf("\033[H\033[J")
 
-void cdfunction();
 
 int main() {
-     char command;
-    printf("Enter an cmd: ");
-    scanf("%s", &command);
+     
     
     
     switch(command)
@@ -36,9 +33,5 @@ int main() {
 }
 
 void cdfunction(){
-printf("Printing current dir\n");
-	char cwd[100];
-	if(getcwd(cwd, sizeof(cwd)) != NULL){
-		printf("%s\n", cwd);
-	}
+
 }

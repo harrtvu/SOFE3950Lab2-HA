@@ -2,19 +2,18 @@
 int main(int argc, char **argv) {
 
 
+void cdfunction();
 
 
 
-	char cmd;
+	char command;
+    printf("Enter an cmd: ");
+    scanf("%s", &command);
 
-    printf("Enter an cmd");
-    scanf("%c", &cmd);
-    printf("Enter two operands: ");
-
-    switch(cmd)
+    switch(command)
     {
-        case '+':
-            printf("%.1lf + %.1lf = %.1lf",n1, n2, n1+n2);
+        case '1':
+            cdfunction();
             break;
         case '-':
             printf("%.1lf - %.1lf = %.1lf",n1, n2, n1-n2);
@@ -44,7 +43,11 @@ void listEnvironmentStrings(){
 
 }
 void displayCommands(){
-
+printf("Printing current dir\n");
+	char cwd[100];
+	if(getcwd(cwd, sizeof(cwd)) != NULL){
+		printf("%s\n", cwd);
+	}
 }
 void displayManual(){
 
