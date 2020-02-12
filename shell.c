@@ -1,10 +1,10 @@
-﻿#include <sys/wait.h>
+#include <sys/wait.h>
 #include <sys/types.h>
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
-#include <shell.h>
+#include "shell.h"
 #define BUFSIZE 1024
 #define TOKEN_BUFSIZE 64
 #define TOKEN_DELIM " \t\r\n\a"
@@ -27,7 +27,7 @@ char *array_str[] = {
   "quit"
  
 };
-// ----- Declaración de array info----------
+
 char *array_info[] = {
     "cd - display or change the current directory using <cd parameter>",
     "exit - execute the shall program using <exit>",
@@ -36,8 +36,8 @@ char *array_info[] = {
     "pause - stop the program using <pause>",
     "echo - print element using <echo parameter>"
   };
-// ----- Declaración de array de funciones-----------
-int (*array_funciones[]) (char **) = {
+
+int (*array_function[]) (char **) = {
   &funcion_clear,
   &funcion_cd,
   &funcion_help,
@@ -52,13 +52,9 @@ int longitud_array_bit() {
   return sizeof(array_str) / sizeof(char *);
 }
 
-/**
- * Nos permite verificar si el argumento que entra es un directorio existente 
- * también si no envía ningun argumento lo solicitamos
- */
 int funcion_cd(char **args)
 {
-  //preguntamos si el argumento es diferente de null o vacio
+ 
   if (args[1] != NULL && args[1] != "") {
     if (chdir(args[1]) != 0){ 
       printf("error: direction <%s>doesn't exit \n",args[1]);   
@@ -70,9 +66,6 @@ int funcion_cd(char **args)
   return 1;
 }
 
-/**
- * funcion de manual nos enseña los diferentes operaciones que podemos hacer en la consola
- */
 int funcion_help(char **args)
 {
   printf("Welcome to my shell :\n");
@@ -153,7 +146,7 @@ int command(char **args)
   if (args[0] == NULL) return 1;
   for (i = 0; i < longitud_array_bit(); i++) {
     if (strcmp(args[0], array_str[i]) == 0) {
-      return (*array_funciones[i])(args);
+      return (*array_function[i])(args);
     }
   }
   return threadC(args);
